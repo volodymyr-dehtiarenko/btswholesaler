@@ -8,23 +8,27 @@ TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC
 
 
 class ApiBTS():
-    """ Connection to ApiBTS products"""
+    """ Connection to https://www.btswholesaler.com products"""
 
     def api_conn():
         head = {'Authorization': "Bearer {}".format(TOKEN)}
         connect = requests.get(URL_PRODUCTS, headers=head)
         if connect.status_code == 200:
             print("Connection to BTS API - OK!", connect)
+            return connect
 
 
     def api_productCRUD():
-        pass
+        for item in self.connect:
+                print(item)
 
     def item_adding():
         pass
 
 if __name__ == '__main__':
     ApiBTS.api_conn()
+    ApiBTS.api_productCRUD()
+
     
     
 
