@@ -8,7 +8,7 @@ TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC
 
 
 class ApiBTS():
-    """ Connection to https://www.btswholesaler.com products"""
+    """ Connection to https://www.btswholesaler.com and download products"""
 
     def api_conn():
         head = {'Authorization': "Bearer {}".format(TOKEN)}
