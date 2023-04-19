@@ -30,3 +30,34 @@
 "flammable":false,
 "restricted_countries":[]
 }
+
+def api_connect():
+    head = {'Authorization': "Bearer {}".format(TOKEN)}
+    api_response = requests.get(URL_PRODUCTS, headers=head)
+    
+    if api_response.status_code == 200:
+        print("Connection to BTS API - OK!")
+    yield api_response
+
+
+def api_productCRUD(**kwargs):
+    api_data = api_connect().api_response
+    today = date.today()
+    file_name = date.isoformat(today)
+    try:
+        with open('product_'+ file_name +'.json', "wb") as fp:
+            pickle.dump(api_data)
+            print("File is ready - OK!")
+    except TypeError:
+        print("Sorry file not writening - NO!")
+
+        
+
+
+
+if __name__ == '__main__':
+    #api_connect()
+    api_productCRUD()
+
+    
+    
